@@ -1,0 +1,795 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>jruzicka – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">jruzicka</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Maintainer jruzicka </h1>
+            <ul class="fa-ul">
+                <li><span class="fa fa-li fa-th-list"></span>
+                    <a href="https://src.fedoraproject.org/user/jruzicka">Pagure package list</a>
+                </li>
+                <li><span class="fa fa-li fa-key"></span>
+                    <a href="https://admin.fedoraproject.org/accounts/user/view/jruzicka">FAS</a>
+                </li>
+            </ul>
+            <h2>Maintained Python packages (25)</h2>
+            <ul class="simple-pkg-list">
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/crudini/">crudini
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/rdopkg/">rdopkg
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-distroinfo/">python-distroinfo
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-futurist/">python-futurist
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-glanceclient/">python-glanceclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-keystoneclient/">python-keystoneclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-novaclient/">python-novaclient
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pymod2pkg/">python-pymod2pkg
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-swiftclient/">python-swiftclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tosca-parser/">python-tosca-parser
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-automaton/">python-automaton
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-barbicanclient/">python-barbicanclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cinderclient/">python-cinderclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cliff-tablib/">python-cliff-tablib
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-heatclient/">python-heatclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-keystonemiddleware/">python-keystonemiddleware
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-neutronclient/">python-neutronclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-openstackclient/">python-openstackclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-os-brick/">python-os-brick
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-osc-lib/">python-osc-lib
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-saharaclient/">python-saharaclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-sphinxcontrib-seqdiag/">python-sphinxcontrib-seqdiag
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-troveclient/">python-troveclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-zaqarclient/">python-zaqarclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python-functools32/">python-functools32
+    </a>
+                   </li>
+                
+            </ul>
+            
+                <h2>Co-maintainers</h2>
+                <ul>
+                    
+                    <li>
+                            
+        <a href="/maintainer/amoralej/">amoralej</a>
+    
+    (10)
+    <a href="https://src.fedoraproject.org/user/amoralej">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-osc-lib/">python-osc-lib
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/apevec/">apevec</a>
+    
+    (114)
+    <a href="https://src.fedoraproject.org/user/apevec">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 18
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-automaton/">python-automaton
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cinderclient/">python-cinderclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cliff-tablib/">python-cliff-tablib
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python-functools32/">python-functools32
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-futurist/">python-futurist
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-glanceclient/">python-glanceclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-heatclient/">python-heatclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-keystoneclient/">python-keystoneclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-keystonemiddleware/">python-keystonemiddleware
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-neutronclient/">python-neutronclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-novaclient/">python-novaclient
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-openstackclient/">python-openstackclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-os-brick/">python-os-brick
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-osc-lib/">python-osc-lib
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pymod2pkg/">python-pymod2pkg
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-saharaclient/">python-saharaclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-sphinxcontrib-seqdiag/">python-sphinxcontrib-seqdiag
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-swiftclient/">python-swiftclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/chandankumar/">chandankumar</a>
+    
+    (28)
+    <a href="https://src.fedoraproject.org/user/chandankumar">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-barbicanclient/">python-barbicanclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tosca-parser/">python-tosca-parser
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        egafford
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/egafford">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-saharaclient/">python-saharaclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/eharney/">eharney</a>
+    
+    (6)
+    <a href="https://src.fedoraproject.org/user/eharney">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cinderclient/">python-cinderclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/flaper87/">flaper87</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/flaper87">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-zaqarclient/">python-zaqarclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/hguemar/">hguemar</a>
+    
+    (56)
+    <a href="https://src.fedoraproject.org/user/hguemar">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 4
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cliff-tablib/">python-cliff-tablib
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python-functools32/">python-functools32
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-osc-lib/">python-osc-lib
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-zaqarclient/">python-zaqarclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jpena/">jpena</a>
+    
+    (37)
+    <a href="https://src.fedoraproject.org/user/jpena">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 7
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-automaton/">python-automaton
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-futurist/">python-futurist
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-os-brick/">python-os-brick
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-osc-lib/">python-osc-lib
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pymod2pkg/">python-pymod2pkg
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-sphinxcontrib-seqdiag/">python-sphinxcontrib-seqdiag
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tosca-parser/">python-tosca-parser
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        mimccune
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/mimccune">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-saharaclient/">python-saharaclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/mrunge/">mrunge</a>
+    
+    (119)
+    <a href="https://src.fedoraproject.org/user/mrunge">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-troveclient/">python-troveclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/nkinder/">nkinder</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/nkinder">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-keystonemiddleware/">python-keystonemiddleware
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/pbrady/">pbrady</a>
+    
+    (4)
+    <a href="https://src.fedoraproject.org/user/pbrady">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/crudini/">crudini
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/ryansb/">ryansb</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/ryansb">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-heatclient/">python-heatclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/zaitcev/">zaitcev</a>
+    
+    (5)
+    <a href="https://src.fedoraproject.org/user/zaitcev">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-swiftclient/">python-swiftclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/zaneb/">zaneb</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/zaneb">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-heatclient/">python-heatclient
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+        
+    </body>
+</html>

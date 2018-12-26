@@ -1,0 +1,438 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>pkilambi – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">pkilambi</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Maintainer pkilambi </h1>
+            <ul class="fa-ul">
+                <li><span class="fa fa-li fa-th-list"></span>
+                    <a href="https://src.fedoraproject.org/user/pkilambi">Pagure package list</a>
+                </li>
+                <li><span class="fa fa-li fa-key"></span>
+                    <a href="https://admin.fedoraproject.org/accounts/user/view/pkilambi">FAS</a>
+                </li>
+            </ul>
+            <h2>Maintained Python packages (13)</h2>
+            <ul class="simple-pkg-list">
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/grinder/">grinder
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw-ext/">python-jsonpath-rw-ext
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-kafka/">python-kafka
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pifpaf/">python-pifpaf
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pytimeparse/">python-pytimeparse
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-tenacity/">python-tenacity
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-cotyledon/">python-cotyledon
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-aodhclient/">python-aodhclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-ceilometermiddleware/">python-ceilometermiddleware
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-daiquiri/">python-daiquiri
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-gnocchiclient/">python-gnocchiclient
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pankoclient/">python-pankoclient
+    </a>
+                   </li>
+                
+            </ul>
+            
+                <h2>Co-maintainers</h2>
+                <ul>
+                    
+                    <li>
+                            
+        <a href="/maintainer/apevec/">apevec</a>
+    
+    (114)
+    <a href="https://src.fedoraproject.org/user/apevec">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 4
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-aodhclient/">python-aodhclient
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-cotyledon/">python-cotyledon
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw-ext/">python-jsonpath-rw-ext
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/eglynn/">eglynn</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/eglynn">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/hguemar/">hguemar</a>
+    
+    (56)
+    <a href="https://src.fedoraproject.org/user/hguemar">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 4
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-daiquiri/">python-daiquiri
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw-ext/">python-jsonpath-rw-ext
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pifpaf/">python-pifpaf
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jmatthews/">jmatthews</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/jmatthews">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/grinder/">grinder
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/nsaje/">nsaje</a>
+    
+    (4)
+    <a href="https://src.fedoraproject.org/user/nsaje">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+        
+    </body>
+</html>

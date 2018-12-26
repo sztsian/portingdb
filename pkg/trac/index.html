@@ -1,0 +1,1810 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>trac – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="/status/idle.svg?86c9d13d-846b-491d-831f-5006da15d2c6">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">trac</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Package trac </h1>
+            <div style="border-left: 4px solid #DDDDDD; padding-left: 4px; ">
+                <p>No one is working on this package now. You can visit pkgdb for links to the
+upstream project.
+Ask for Python 3 status, and coordinate work with the upstream to port.</p>
+<p>If upstream has Python 3 support but it is not yet in Fedora,
+get in touch with the Fedora maintainer (also visible in pkgdb).</p>
+            </div>
+            <br>
+            
+            
+            
+            <div>
+                <img src="https://fedoraproject.org/static/images/favicon.ico">
+                See
+                <a href="https://src.fedoraproject.org/rpms/trac/">
+                    trac</a>
+                in the Fedora Pagure, or go directly to the corresponding
+                <a href="https://src.fedoraproject.org/rpms/trac/blob/master/f/trac.spec">spec file</a>.
+            </div>
+        </div>
+        <div class="col-md-3">
+                
+                
+                    
+                    
+                        <div>
+                            <h3>RPMs</h3>
+                            <ul class="rpm-list">
+                            
+                                <li>
+                                    <span class="rpm-name">trac</span>-1.2.3-1.fc29
+                                    
+                                    
+    
+
+                                    <ul class="fa-ul">
+                                        
+                                            <li>
+                                                
+                                                    <span class="fa fa-li">×</span>
+                                                
+                                                /usr/bin/python2
+                                                
+                                            </li>
+                                        
+                                            <li>
+                                                
+                                                    <span class="fa fa-li">×</span>
+                                                
+                                                python(abi) = 2.7
+                                                
+                                            </li>
+                                        
+                                    </ul>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    
+                    
+                    
+                
+            
+                <h3>Groups</h3>
+                <ul>
+                    
+                        <li>
+                            <a href="/grp/trac/">
+                                Version Control &amp; Trac
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+            
+                <h3>Maintainers</h3>
+                <ul>
+                    
+                        <li>
+                            
+        <a href="/maintainer/daveisfera/">daveisfera</a>
+    
+    (11)
+    <a href="https://src.fedoraproject.org/user/daveisfera">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                        <li>
+                            
+        <a href="/maintainer/fschwarz/">fschwarz</a>
+    
+    (14)
+    <a href="https://src.fedoraproject.org/user/fschwarz">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                        <li>
+                            
+        <a href="/maintainer/limb/">limb</a>
+    
+    (85)
+    <a href="https://src.fedoraproject.org/user/limb">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                        <li>
+                            
+        <a href="/maintainer/lmacken/">lmacken</a>
+    
+    (35)
+    <a href="https://src.fedoraproject.org/user/lmacken">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                </ul>
+            
+        </div>
+        
+            <div class="col-md-4 related-packages">
+                <h2>Dependencies</h2>
+                
+    (Python 2 packages only)
+    <h4>Run time <i class="fa fa-rocket"></i></h4>
+    
+        <div>
+        
+            3 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+            2 Dual support;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+            1 Dropped
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-genshi/">python-genshi
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-setuptools/">python-setuptools
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    <h4>Build time <i class="fa fa-wrench"></i></h4>
+    
+        <div>
+        
+            8 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+            6 Dual support;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+            1 Idle;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+            1 Dropped
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/subversion/">subversion
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-configobj/">python-configobj
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1296284" title="bug (CLOSED ERRATA)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-ERRATA
+        
+    ">
+        <span class="type-alt">bug (CLOSED ERRATA)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-docutils/">python-docutils
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1436808" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-genshi/">python-genshi
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-lxml/">python-lxml
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pygments/">python-pygments
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1323256" title="bug (CLOSED ERRATA)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-ERRATA
+        
+    ">
+        <span class="type-alt">bug (CLOSED ERRATA)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-setuptools/">python-setuptools
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    
+        <h3>Dependency Tree</h3>
+        <ul class="simple-pkg-list">
+        
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/subversion/">subversion
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-configobj/">python-configobj
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-docutils/">python-docutils
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-genshi/">python-genshi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-lxml/">python-lxml
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pygments/">python-pygments
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-setuptools/">python-setuptools
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+    </ul>
+    
+
+            </div>
+            <div class="col-md-4 related-packages">
+                <h2>Dependents</h2>
+                
+    (Python 2 packages only)
+    <h4>Run time <i class="fa fa-rocket"></i></h4>
+    
+        <div>
+        
+            31 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+            31 Blocked
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/bitten/">bitten
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/email2trac/">email2trac
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-CGit-plugin/">trac-CGit-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-accountmanager-plugin/">trac-accountmanager-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-advancedticketworkflow-plugin/">trac-advancedticketworkflow-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-authopenid-plugin/">trac-authopenid-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-batchmodify-plugin/">trac-batchmodify-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-bazaar-plugin/">trac-bazaar-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-blackmagictickettweaks-plugin/">trac-blackmagictickettweaks-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-customfieldadmin-plugin/">trac-customfieldadmin-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-doxygen-plugin/">trac-doxygen-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-fedmsg-plugin/">trac-fedmsg-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-git-plugin/">trac-git-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-iniadmin-plugin/">trac-iniadmin-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-mastertickets-plugin/">trac-mastertickets-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-mercurial-plugin/">trac-mercurial-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-monotone-plugin/">trac-monotone-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-navadd-plugin/">trac-navadd-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-privateticketsplugin/">trac-privateticketsplugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sensitivetickets-plugin/">trac-sensitivetickets-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-spamfilter-plugin/">trac-spamfilter-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sphinx-plugin/">trac-sphinx-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sumfields-plugin/">trac-sumfields-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-themeengine-plugin/">trac-themeengine-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tickettemplate-plugin/">trac-tickettemplate-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tocmacro-plugin/">trac-tocmacro-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tracnav-plugin/">trac-tracnav-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-vatar-plugin/">trac-vatar-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-watchlist-plugin/">trac-watchlist-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-workflowadmin-plugin/">trac-workflowadmin-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-xmlrpc-plugin/">trac-xmlrpc-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    <h4>Build time <i class="fa fa-wrench"></i></h4>
+    
+        <div>
+        
+            2 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+            2 Blocked
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-accountmanager-plugin/">trac-accountmanager-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-spamfilter-plugin/">trac-spamfilter-plugin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    
+        <h3>Dependency Tree</h3>
+        <ul class="simple-pkg-list">
+        
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/bitten/">bitten
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/email2trac/">email2trac
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-CGit-plugin/">trac-CGit-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-accountmanager-plugin/">trac-accountmanager-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-advancedticketworkflow-plugin/">trac-advancedticketworkflow-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-authopenid-plugin/">trac-authopenid-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-batchmodify-plugin/">trac-batchmodify-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-bazaar-plugin/">trac-bazaar-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-blackmagictickettweaks-plugin/">trac-blackmagictickettweaks-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-customfieldadmin-plugin/">trac-customfieldadmin-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-doxygen-plugin/">trac-doxygen-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-fedmsg-plugin/">trac-fedmsg-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-git-plugin/">trac-git-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-iniadmin-plugin/">trac-iniadmin-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-mastertickets-plugin/">trac-mastertickets-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-mercurial-plugin/">trac-mercurial-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-monotone-plugin/">trac-monotone-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-navadd-plugin/">trac-navadd-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-privateticketsplugin/">trac-privateticketsplugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sensitivetickets-plugin/">trac-sensitivetickets-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-spamfilter-plugin/">trac-spamfilter-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sphinx-plugin/">trac-sphinx-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-sumfields-plugin/">trac-sumfields-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-themeengine-plugin/">trac-themeengine-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tickettemplate-plugin/">trac-tickettemplate-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tocmacro-plugin/">trac-tocmacro-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-tracnav-plugin/">trac-tracnav-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-vatar-plugin/">trac-vatar-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-watchlist-plugin/">trac-watchlist-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-workflowadmin-plugin/">trac-workflowadmin-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-xmlrpc-plugin/">trac-xmlrpc-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+    </ul>
+    
+
+            </div>
+        
+    </div>
+
+        
+    </body>
+</html>

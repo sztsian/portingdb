@@ -1,0 +1,919 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>ankursinha – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">ankursinha</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Maintainer ankursinha </h1>
+            <ul class="fa-ul">
+                <li><span class="fa fa-li fa-th-list"></span>
+                    <a href="https://src.fedoraproject.org/user/ankursinha">Pagure package list</a>
+                </li>
+                <li><span class="fa fa-li fa-key"></span>
+                    <a href="https://admin.fedoraproject.org/accounts/user/view/ankursinha">FAS</a>
+                </li>
+            </ul>
+            <h2>Maintained Python packages (63)</h2>
+            <ul class="simple-pkg-list">
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/bibus/">bibus
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/labyrinth/">labyrinth
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/nautilus-pastebin/">nautilus-pastebin
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/prepaid-manager-applet/">prepaid-manager-applet
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scout/">scout
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/xword/">xword
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gnumed/">gnumed
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/hamster-time-tracker/">hamster-time-tracker
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/memaker/">memaker
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/rssdler/">rssdler
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pystache/">pystache
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_pkg/">python-catkin_pkg
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-hl7/">python-hl7
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-rosinstall_generator/">python-rosinstall_generator
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-wstool/">python-wstool
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/libgexiv2/">libgexiv2
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/pycscope/">pycscope
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_lint/">python-catkin_lint
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_tools/">python-catkin_tools
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-mpd2/">python-mpd2
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-quantities/">python-quantities
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fpaste/">fpaste
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gdcm/">gdcm
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gitg/">gitg
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/mpdris2/">mpdris2
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/nest/">nest
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-PyLEMS/">python-PyLEMS
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-brian2/">python-brian2
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-dipy/">python-dipy
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-django-post_office/">python-django-post_office
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-django-stopforumspam/">python-django-stopforumspam
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-duecredit/">python-duecredit
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-efel/">python-efel
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fastavro/">python-fastavro
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-feedgenerator/">python-feedgenerator
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fsleyes/">python-fsleyes
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fsleyes-props/">python-fsleyes-props
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fsleyes-widgets/">python-fsleyes-widgets
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fslpy/">python-fslpy
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-grabbit/">python-grabbit
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-hdfs/">python-hdfs
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-indexed_gzip/">python-indexed_gzip
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-klusta/">python-klusta
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-lazyarray/">python-lazyarray
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-libNeuroML/">python-libNeuroML
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-neo/">python-neo
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-nilearn/">python-nilearn
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-nineml/">python-nineml
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-nitime/">python-nitime
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-nixio/">python-nixio
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-petlink/">python-petlink
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-progressbar2/">python-progressbar2
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pybids/">python-pybids
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pyemd/">python-pyemd
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pygiftiio/">python-pygiftiio
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pykalman/">python-pykalman
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pymatreader/">python-pymatreader
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-pyphi/">python-pyphi
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-rstcheck/">python-rstcheck
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-tasklib/">python-tasklib
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-uri-templates/">python-uri-templates
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trash-cli/">trash-cli
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/vimiv/">vimiv
+    </a>
+                   </li>
+                
+            </ul>
+            
+                <h2>Co-maintainers</h2>
+                <ul>
+                    
+                    <li>
+                            
+        <a href="/maintainer/alexlan/">alexlan</a>
+    
+    (9)
+    <a href="https://src.fedoraproject.org/user/alexlan">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/bibus/">bibus
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/bnemec/">bnemec</a>
+    
+    (6)
+    <a href="https://src.fedoraproject.org/user/bnemec">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pystache/">pystache
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/cottsay/">cottsay</a>
+    
+    (23)
+    <a href="https://src.fedoraproject.org/user/cottsay">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 5
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_lint/">python-catkin_lint
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_pkg/">python-catkin_pkg
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_tools/">python-catkin_tools
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-rosinstall_generator/">python-rosinstall_generator
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-wstool/">python-wstool
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/ignatenkobrain/">ignatenkobrain</a>
+    
+    (169)
+    <a href="https://src.fedoraproject.org/user/ignatenkobrain">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gdcm/">gdcm
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gitg/">gitg
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        kengert
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/kengert">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/prepaid-manager-applet/">prepaid-manager-applet
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/kevin/">kevin</a>
+    
+    (58)
+    <a href="https://src.fedoraproject.org/user/kevin">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fpaste/">fpaste
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/lef/">lef</a>
+    
+    (4)
+    <a href="https://src.fedoraproject.org/user/lef">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fpaste/">fpaste
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/mbaldessari/">mbaldessari</a>
+    
+    (16)
+    <a href="https://src.fedoraproject.org/user/mbaldessari">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-uri-templates/">python-uri-templates
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/mrceresa/">mrceresa</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/mrceresa">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gdcm/">gdcm
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/nacho/">nacho</a>
+    
+    (6)
+    <a href="https://src.fedoraproject.org/user/nacho">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gitg/">gitg
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/pjp/">pjp</a>
+    
+    (23)
+    <a href="https://src.fedoraproject.org/user/pjp">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pystache/">pystache
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/pviktori/">pviktori</a>
+    
+    (13)
+    <a href="https://src.fedoraproject.org/user/pviktori">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-progressbar2/">python-progressbar2
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/pwalter/">pwalter</a>
+    
+    (13)
+    <a href="https://src.fedoraproject.org/user/pwalter">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gitg/">gitg
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/rmattes/">rmattes</a>
+    
+    (26)
+    <a href="https://src.fedoraproject.org/user/rmattes">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 5
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_lint/">python-catkin_lint
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_pkg/">python-catkin_pkg
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_tools/">python-catkin_tools
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-rosinstall_generator/">python-rosinstall_generator
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-wstool/">python-wstool
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/robyduck/">robyduck</a>
+    
+    (9)
+    <a href="https://src.fedoraproject.org/user/robyduck">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fpaste/">fpaste
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        sebp
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/sebp">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/gdcm/">gdcm
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/sundaram/">sundaram</a>
+    
+    (26)
+    <a href="https://src.fedoraproject.org/user/sundaram">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pystache/">pystache
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,1974 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>python-ply – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="/status/released.svg?b1ad6491-0108-4ead-9d2e-c8dddf6fd7dd">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">python-ply</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Package python-ply </h1>
+            <div style="border-left: 4px solid #5EBA84; padding-left: 4px; ">
+                <p>This package is released with dual support for Python 2 and Python 3. To move things forward, you can start making dependent packages use the Python 3 version.</p>
+            </div>
+            <br>
+            
+            
+            
+            <div>
+                <img src="https://fedoraproject.org/static/images/favicon.ico">
+                See
+                <a href="https://src.fedoraproject.org/rpms/python-ply/">
+                    python-ply</a>
+                in the Fedora Pagure, or go directly to the corresponding
+                <a href="https://src.fedoraproject.org/rpms/python-ply/blob/master/f/python-ply.spec">spec file</a>.
+            </div>
+        </div>
+        <div class="col-md-3">
+                
+                
+                    
+                    
+                        <div>
+                            <h3>RPMs</h3>
+                            <ul class="rpm-list">
+                            
+                                <li>
+                                    <span class="rpm-name">python2-ply</span>-3.9-8.fc29
+                                    
+                                    
+    
+
+                                    <ul class="fa-ul">
+                                        
+                                            <li>
+                                                
+                                                    <span class="fa fa-li">×</span>
+                                                
+                                                python(abi) = 2.7
+                                                
+                                            </li>
+                                        
+                                    </ul>
+                                </li>
+                            
+                                <li>
+                                    <span class="rpm-name">python3-ply</span>-3.9-8.fc29
+                                    
+                                    
+    
+
+                                    <ul class="fa-ul">
+                                        
+                                            <li>
+                                                
+                                                    <span class="fa fa-li">✔</span>
+                                                
+                                                python(abi) = 3.7
+                                                
+                                            </li>
+                                        
+                                    </ul>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    
+                    
+                    
+                
+            
+                <h3>Groups</h3>
+                <ul>
+                    
+                        <li>
+                            <a href="/grp/django/">
+                                Django Web Framework
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/fedora-infra/">
+                                Fedora Infrastructure
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/identity/">
+                                Identity Management
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/kde-spin/">
+                                KDE spin
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/olpc/">
+                                OLPC/Sugar
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/openstack/">
+                                OpenStack
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/ros/">
+                                Robot Operating System Packages
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/simcrs/">
+                                SimCRS
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/trac/">
+                                Version Control &amp; Trac
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/grp/xfce-spin/">
+                                Xfce spin
+                            </a>
+                        </li>
+                    
+                </ul>
+            
+            
+                <h3>Maintainers</h3>
+                <ul>
+                    
+                        <li>
+                            
+        <a href="/maintainer/sgallagh/">sgallagh</a>
+    
+    (22)
+    <a href="https://src.fedoraproject.org/user/sgallagh">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                        <li>
+                            
+        <a href="/maintainer/spot/">spot</a>
+    
+    (27)
+    <a href="https://src.fedoraproject.org/user/spot">
+        <i class="fa fa-th-list"></i>
+    </a>
+                        </li>
+                    
+                </ul>
+            
+        </div>
+        
+            <div class="col-md-4 related-packages">
+                <h2>Dependencies</h2>
+                
+    (Python 2 packages only)
+    <h4>Run time <i class="fa fa-rocket"></i></h4>
+    
+        <div>
+        
+            1 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+            1 Dropped
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    <h4>Build time <i class="fa fa-wrench"></i></h4>
+    
+        <div>
+        
+            2 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+            1 Dual support;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+            1 Dropped
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-setuptools/">python-setuptools
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #888888 !important;"
+            title="Dropped"
+        >
+            X
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    
+        <h3>Dependency Tree</h3>
+        <ul class="simple-pkg-list">
+        
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-setuptools/">python-setuptools
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2/">python2
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+    </ul>
+    
+
+            </div>
+            <div class="col-md-4 related-packages">
+                <h2>Dependents</h2>
+                
+    (Python 2 packages only)
+    <h4>Run time <i class="fa fa-rocket"></i></h4>
+    
+        <div>
+        
+            8 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+            3 Dual support;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+            3 Idle;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+            2 Blocked
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/chameleon/">chameleon
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-cli/">python-cli
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311516" title="bug (CLOSED EOL)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-EOL
+        
+    ">
+        <span class="type-alt">bug (CLOSED EOL)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-gertty/">python-gertty
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/nordugrid-arc-nagios-plugins/">nordugrid-arc-nagios-plugins
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/ovirt-engine-cli/">ovirt-engine-cli
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw/">python-jsonpath-rw
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pycparser/">python-pycparser
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-yaql/">python-yaql
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    <h4>Build time <i class="fa fa-wrench"></i></h4>
+    
+        <div>
+        
+            5 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+            1 Dual support;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+            3 Idle;
+            </span>
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+            1 Blocked
+            </span>
+        
+    </div>
+        <table class="table table-striped table-condensed table-hovered">
+            <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/chromium/">chromium
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-cli/">python-cli
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1311516" title="bug (CLOSED EOL)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-EOL
+        
+    ">
+        <span class="type-alt">bug (CLOSED EOL)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/syslog-ng/">syslog-ng
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #DDDDDD !important;"
+            title="Idle"
+        >
+            I
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/ovirt-engine-cli/">ovirt-engine-cli
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #D9534F !important;"
+            title="Blocked"
+        >
+            B
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pycparser/">python-pycparser
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #5EBA84 !important;"
+            title="Dual support"
+        >
+            ✔
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+    </tbody>
+        </table>
+    
+    
+        <h3>Dependency Tree</h3>
+        <ul class="simple-pkg-list">
+        
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/chameleon/">chameleon
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/chromium/">chromium
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-cli/">python-cli
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-gertty/">python-gertty
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/syslog-ng/">syslog-ng
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/nordugrid-arc-nagios-plugins/">nordugrid-arc-nagios-plugins
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/ovirt-engine-cli/">ovirt-engine-cli
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw/">python-jsonpath-rw
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jsonpath-rw-ext/">python-jsonpath-rw-ext
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-gabbi/">python-gabbi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pycparser/">python-pycparser
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-cffi/">python-cffi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-autobahn/">python-autobahn
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/paraview/">paraview
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-bcrypt/">python-bcrypt
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/matrix-synapse/">matrix-synapse
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/syncthing-gtk/">syncthing-gtk
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/totpcgi/">totpcgi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-paramiko/">python-paramiko
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2-django1.11/">python2-django1.11
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-cairocffi/">python-cairocffi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pygal/">python-pygal
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-cryptography/">python-cryptography
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-docker/">python-docker
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/fedmsg/">fedmsg
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pyOpenSSL/">pyOpenSSL
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-beaker/">python-beaker
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-jwcrypto/">python-jwcrypto
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oauthlib/">python-oauthlib
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-paramiko/">python-paramiko
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pysaml2/">python-pysaml2
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-requests-kerberos/">python-requests-kerberos
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-requests_ntlm/">python-requests_ntlm
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-twisted/">python-twisted
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pillow/">python-pillow
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/matrix-synapse/">matrix-synapse
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/PySolFC/">PySolFC
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/comix/">comix
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/grass/">grass
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/impressive/">impressive
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/jbrout/">jbrout
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/kimchi/">kimchi
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/mcomix/">mcomix
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/nested/">nested
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pkpgcounter/">pkpgcounter
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-tilestache/">python-tilestache
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-trml2pdf12/">python-trml2pdf12
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/rtlsdr-scanner/">rtlsdr-scanner
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scribus/">scribus
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/swatchbooker/">swatchbooker
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/uniconvertor/">uniconvertor
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/wallpapoz/">wallpapoz
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/wavextract/">wavextract
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zbar/">zbar
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/bkchem/">bkchem
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/calibre/">calibre
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gourmet/">gourmet
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/memaker/">memaker
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/openerp/">openerp
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/python-mwlib/">python-mwlib
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/rapid-photo-downloader/">rapid-photo-downloader
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/sK1/">sK1
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trac-spamfilter-plugin/">trac-spamfilter-plugin
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/winswitch/">winswitch
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-blockdiag/">python-blockdiag
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-fabulous/">python-fabulous
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-modestmaps/">python-modestmaps
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pydenticon/">python-pydenticon
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-reportlab/">python-reportlab
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-sane/">python-sane
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-actdiag/">python-actdiag
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-evic/">python-evic
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-mongoengine/">python-mongoengine
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-nwdiag/">python-nwdiag
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-seqdiag/">python-seqdiag
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-textile/">python-textile
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-webassets/">python-webassets
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-xhtml2pdf/">python-xhtml2pdf
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/variety/">variety
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2-django1.11/">python2-django1.11
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python2-matplotlib/">python2-matplotlib
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pynacl/">python-pynacl
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/matrix-synapse/">matrix-synapse
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-paramiko/">python-paramiko
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-signedjson/">python-signedjson
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-snappy/">python-snappy
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-autobahn/">python-autobahn
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-pykafka/">python-pykafka
+    </a>
+            
+            <i class="dep-kind fa fa-wrench"></i>
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-yaql/">python-yaql
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/python-muranoclient/">python-muranoclient
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-murano-pkg-check/">python-murano-pkg-check
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            <i class="dep-kind fa fa-wrench"></i>
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/python-muranoclient/">python-muranoclient
+    </a>
+            <i class="dep-kind fa fa-rocket"></i>
+            
+            …
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+    
+
+            </div>
+        
+    </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,585 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>pnemade – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">pnemade</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Maintainer pnemade </h1>
+            <ul class="fa-ul">
+                <li><span class="fa fa-li fa-th-list"></span>
+                    <a href="https://src.fedoraproject.org/user/pnemade">Pagure package list</a>
+                </li>
+                <li><span class="fa fa-li fa-key"></span>
+                    <a href="https://admin.fedoraproject.org/accounts/user/view/pnemade">FAS</a>
+                </li>
+            </ul>
+            <h2>Maintained Python packages (19)</h2>
+            <ul class="simple-pkg-list">
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pology/">pology
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/yum-langpacks/">yum-langpacks
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/fonttools/">fonttools
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-betamax/">python-betamax
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-requests-toolbelt/">python-requests-toolbelt
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/transtats-cli/">transtats-cli
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/woffTools/">woffTools
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/ansible-inventory-grapher/">ansible-inventory-grapher
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/ansible-lint/">ansible-lint
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fontdump/">fontdump
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fontforge/">fontforge
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cltk/">python-cltk
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-cpuinfo/">python-cpuinfo
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-drat/">python-drat
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-fontname/">python-fontname
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-freetype/">python-freetype
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/system-config-language/">system-config-language
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/wordxtr/">wordxtr
+    </a>
+                   </li>
+                
+            </ul>
+            
+                <h2>Co-maintainers</h2>
+                <ul>
+                    
+                    <li>
+                            
+        <a href="/maintainer/anishpatil/">anishpatil</a>
+    
+    (5)
+    <a href="https://src.fedoraproject.org/user/anishpatil">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/system-config-language/">system-config-language
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/dchen/">dchen</a>
+    
+    (12)
+    <a href="https://src.fedoraproject.org/user/dchen">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/frixxon/">frixxon</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/frixxon">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fontforge/">fontforge
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/ignatenkobrain/">ignatenkobrain</a>
+    
+    (169)
+    <a href="https://src.fedoraproject.org/user/ignatenkobrain">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-betamax/">python-betamax
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-requests-toolbelt/">python-requests-toolbelt
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/james/">james</a>
+    
+    (8)
+    <a href="https://src.fedoraproject.org/user/james">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/yum-langpacks/">yum-langpacks
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jamesni/">jamesni</a>
+    
+    (3)
+    <a href="https://src.fedoraproject.org/user/jamesni">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/kevin/">kevin</a>
+    
+    (58)
+    <a href="https://src.fedoraproject.org/user/kevin">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/fontforge/">fontforge
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        nkumar
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/nkumar">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/system-config-language/">system-config-language
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/petersen/">petersen</a>
+    
+    (4)
+    <a href="https://src.fedoraproject.org/user/petersen">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/yum-langpacks/">yum-langpacks
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        pravins
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/pravins">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/system-config-language/">system-config-language
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/robyduck/">robyduck</a>
+    
+    (9)
+    <a href="https://src.fedoraproject.org/user/robyduck">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        sandeeps
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/sandeeps">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/woffTools/">woffTools
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        seanf
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/seanf">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/suanand/">suanand</a>
+    
+    (6)
+    <a href="https://src.fedoraproject.org/user/suanand">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/transtats-cli/">transtats-cli
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/zanata-python-client/">zanata-python-client
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+        
+    </body>
+</html>

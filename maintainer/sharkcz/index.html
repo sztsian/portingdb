@@ -1,0 +1,1008 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>sharkcz – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">sharkcz</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Maintainer sharkcz </h1>
+            <ul class="fa-ul">
+                <li><span class="fa fa-li fa-th-list"></span>
+                    <a href="https://src.fedoraproject.org/user/sharkcz">Pagure package list</a>
+                </li>
+                <li><span class="fa fa-li fa-key"></span>
+                    <a href="https://admin.fedoraproject.org/accounts/user/view/sharkcz">FAS</a>
+                </li>
+            </ul>
+            <h2>Maintained Python packages (62)</h2>
+            <ul class="simple-pkg-list">
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scribus/">scribus
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/tryton/">tryton
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gr-rds/">gr-rds
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pyparsing/">pyparsing
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-dmidecode/">python-dmidecode
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-vatnumber/">python-vatnumber
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-vobject/">python-vobject
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-pycha/">python-pycha
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/FlightCrew/">FlightCrew
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-openoffice/">python-openoffice
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-proteus/">python-proteus
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-relatorio/">python-relatorio
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-simpleeval/">python-simpleeval
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-sql/">python-sql
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-stdnum/">python-stdnum
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/pywebdav/">pywebdav
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/sigil/">sigil
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond/">trytond
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account/">trytond-account
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-be/">trytond-account-be
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-de-skr03/">trytond-account-de-skr03
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice/">trytond-account-invoice
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice-history/">trytond-account-invoice-history
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice-line-standalone/">trytond-account-invoice-line-standalone
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-product/">trytond-account-product
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-statement/">trytond-account-statement
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-stock-anglo-saxon/">trytond-account-stock-anglo-saxon
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-stock-continental/">trytond-account-stock-continental
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-account/">trytond-analytic-account
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-invoice/">trytond-analytic-invoice
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-purchase/">trytond-analytic-purchase
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-sale/">trytond-analytic-sale
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-company/">trytond-company
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-company-work-time/">trytond-company-work-time
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-country/">trytond-country
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-currency/">trytond-currency
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-dashboard/">trytond-dashboard
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-google-maps/">trytond-google-maps
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-ldap-authentication/">trytond-ldap-authentication
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-party/">trytond-party
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-party-siret/">trytond-party-siret
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product/">trytond-product
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-cost-fifo/">trytond-product-cost-fifo
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-cost-history/">trytond-product-cost-history
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-price-list/">trytond-product-price-list
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project/">trytond-project
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project-plan/">trytond-project-plan
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project-revenue/">trytond-project-revenue
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-purchase/">trytond-purchase
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-purchase-invoice-line-standalone/">trytond-purchase-invoice-line-standalone
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale/">trytond-sale
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale-opportunity/">trytond-sale-opportunity
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale-price-list/">trytond-sale-price-list
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock/">trytond-stock
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-forecast/">trytond-stock-forecast
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-inventory-location/">trytond-stock-inventory-location
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-location-sequence/">trytond-stock-location-sequence
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-product-location/">trytond-stock-product-location
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-supply/">trytond-stock-supply
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-supply-day/">trytond-stock-supply-day
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-timesheet/">trytond-timesheet
+    </a>
+                   </li>
+                
+                   <li>
+                        <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/wxPython/">wxPython
+    </a>
+                   </li>
+                
+            </ul>
+            
+                <h2>Co-maintainers</h2>
+                <ul>
+                    
+                    <li>
+                            
+        <a href="/maintainer/apevec/">apevec</a>
+    
+    (114)
+    <a href="https://src.fedoraproject.org/user/apevec">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pyparsing/">pyparsing
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/awjb/">awjb</a>
+    
+    (16)
+    <a href="https://src.fedoraproject.org/user/awjb">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scribus/">scribus
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/dgoodwin/">dgoodwin</a>
+    
+    (7)
+    <a href="https://src.fedoraproject.org/user/dgoodwin">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-vobject/">python-vobject
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/dsommers/">dsommers</a>
+    
+    (2)
+    <a href="https://src.fedoraproject.org/user/dsommers">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-dmidecode/">python-dmidecode
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/fcami/">fcami</a>
+    
+    (5)
+    <a href="https://src.fedoraproject.org/user/fcami">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scribus/">scribus
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/heffer/">heffer</a>
+    
+    (42)
+    <a href="https://src.fedoraproject.org/user/heffer">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 41
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account/">trytond-account
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-be/">trytond-account-be
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-de-skr03/">trytond-account-de-skr03
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice/">trytond-account-invoice
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice-history/">trytond-account-invoice-history
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-invoice-line-standalone/">trytond-account-invoice-line-standalone
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-product/">trytond-account-product
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-account-statement/">trytond-account-statement
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-account/">trytond-analytic-account
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-invoice/">trytond-analytic-invoice
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-purchase/">trytond-analytic-purchase
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-analytic-sale/">trytond-analytic-sale
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-company/">trytond-company
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-company-work-time/">trytond-company-work-time
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-country/">trytond-country
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-currency/">trytond-currency
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-dashboard/">trytond-dashboard
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-google-maps/">trytond-google-maps
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-ldap-authentication/">trytond-ldap-authentication
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-party/">trytond-party
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-party-siret/">trytond-party-siret
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product/">trytond-product
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-cost-fifo/">trytond-product-cost-fifo
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-cost-history/">trytond-product-cost-history
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-product-price-list/">trytond-product-price-list
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project/">trytond-project
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project-plan/">trytond-project-plan
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-project-revenue/">trytond-project-revenue
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-purchase/">trytond-purchase
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-purchase-invoice-line-standalone/">trytond-purchase-invoice-line-standalone
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale/">trytond-sale
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale-opportunity/">trytond-sale-opportunity
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-sale-price-list/">trytond-sale-price-list
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock/">trytond-stock
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-forecast/">trytond-stock-forecast
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-inventory-location/">trytond-stock-inventory-location
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-location-sequence/">trytond-stock-location-sequence
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-product-location/">trytond-stock-product-location
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-supply/">trytond-stock-supply
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-stock-supply-day/">trytond-stock-supply-day
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/trytond-timesheet/">trytond-timesheet
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jamatos/">jamatos</a>
+    
+    (13)
+    <a href="https://src.fedoraproject.org/user/jamatos">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pyparsing/">pyparsing
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jskarvad/">jskarvad</a>
+    
+    (26)
+    <a href="https://src.fedoraproject.org/user/jskarvad">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gr-rds/">gr-rds
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/jwrdegoede/">jwrdegoede</a>
+    
+    (16)
+    <a href="https://src.fedoraproject.org/user/jwrdegoede">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 2
+                            packages:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/FlightCrew/">FlightCrew
+    </a>
+                            </span>
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/sigil/">sigil
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/mmahut/">mmahut</a>
+    
+    (7)
+    <a href="https://src.fedoraproject.org/user/mmahut">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/wxPython/">wxPython
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/pingou/">pingou</a>
+    
+    (31)
+    <a href="https://src.fedoraproject.org/user/pingou">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-vobject/">python-vobject
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/potty/">potty</a>
+    
+    (5)
+    <a href="https://src.fedoraproject.org/user/potty">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-pycha/">python-pycha
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/swt2c/">swt2c</a>
+    
+    (16)
+    <a href="https://src.fedoraproject.org/user/swt2c">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/wxPython/">wxPython
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        <a href="/maintainer/terjeros/">terjeros</a>
+    
+    (30)
+    <a href="https://src.fedoraproject.org/user/terjeros">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pyparsing/">pyparsing
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                    <li>
+                            
+        tripledes
+    
+    (1)
+    <a href="https://src.fedoraproject.org/user/tripledes">
+        <i class="fa fa-th-list"></i>
+    </a>
+                            – on 1
+                            package:
+                            
+                            <span>
+                                <span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/scribus/">scribus
+    </a>
+                            </span>
+                            
+                    </li>
+                    
+                </ul>
+            
+        </div>
+    </div>
+
+        
+    </body>
+</html>

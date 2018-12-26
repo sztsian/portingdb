@@ -1,0 +1,1429 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>XStatic Packages – Python 2 Dropping Database </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="/grp/xstatic/piechart.svg?28985afa-d954-417c-8e1c-4d103cb5b1cb">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">XStatic Packages</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+    <div class="container">
+        <div class="col-md-12">
+            <h1>XStatic Packages <small>Group</small></h1>
+        </div>
+        <div class="col-md-12">
+            <div class="progress-with-legend">
+        <div class="progress">
+            
+                
+                    <div
+                        class="progress-bar" role="progressbar"
+                        aria-valuenow="31"
+                        aria-valuemin="0" aria-valuemax="31"
+                        style="width: 100.0%;
+                               background-color: #2D9510 !important;
+                               color: black;"
+                        title="31 Python 3 only"
+                    >
+                    </div>
+                
+            
+        </div>
+        <div>
+        
+            31 packages:
+        
+        
+            <span class="progress-legend-item">
+            
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+            31 Python 3 only
+            </span>
+        
+    </div>
+    </div>
+        </div>
+        <div class="col-md-12">
+            (Note that only Python 2 dependencies are tracked.)
+        </div>
+        <div class="col-md-8">
+            <h2>All Needed Packages</h2>
+            
+                <table class="table table-striped table-condensed table-hovered">
+                    <thead>
+        <tr>
+            <th>Package</th>
+            <th data-x-colspan="2" class="th-collection">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic/">python-XStatic
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular/">python-XStatic-Angular
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365037" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Bootstrap/">python-XStatic-Angular-Bootstrap
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365038" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-FileUpload/">python-XStatic-Angular-FileUpload
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Gettext/">python-XStatic-Angular-Gettext
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365041" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Mock/">python-XStatic-Angular-Mock
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365043" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-lrdragndrop/">python-XStatic-Angular-lrdragndrop
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365042" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Bootstrap-Datepicker/">python-XStatic-Bootstrap-Datepicker
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365044" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Bootstrap-SCSS/">python-XStatic-Bootstrap-SCSS
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365045" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-D3/">python-XStatic-D3
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365046" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-DataTables/">python-XStatic-DataTables
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Font-Awesome/">python-XStatic-Font-Awesome
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365047" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Hogan/">python-XStatic-Hogan
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365048" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-Migrate/">python-XStatic-JQuery-Migrate
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365053" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-TableSorter/">python-XStatic-JQuery-TableSorter
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365055" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-quicksearch/">python-XStatic-JQuery-quicksearch
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365054" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JSEncrypt/">python-XStatic-JSEncrypt
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365058" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Jasmine/">python-XStatic-Jasmine
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365050" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Magic-Search/">python-XStatic-Magic-Search
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1210069" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Patternfly/">python-XStatic-Patternfly
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Patternfly-Bootstrap-Treeview/">python-XStatic-Patternfly-Bootstrap-Treeview
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-QUnit/">python-XStatic-QUnit
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365059" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Rickshaw/">python-XStatic-Rickshaw
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365060" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Spin/">python-XStatic-Spin
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365063" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-bootswatch/">python-XStatic-bootswatch
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-jQuery/">python-XStatic-jQuery
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365052" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-jquery-ui/">python-XStatic-jquery-ui
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365057" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-mdi/">python-XStatic-mdi
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-roboto-fontface/">python-XStatic-roboto-fontface
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-smart-table/">python-XStatic-smart-table
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365061" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+            <tr>
+                <td>
+        <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-termjs/">python-XStatic-termjs
+    </a>
+        
+    </td>
+    <td>
+        
+        <span class="badge"
+            style="background-color: #2D9510 !important;"
+            title="Python 3 only"
+        >
+            🗹
+        </span>
+    
+        
+            <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1365064" title="bug (CLOSED RAWHIDE)" class="
+        iconlink fa fa-bug
+        
+            iconlink-bug-CLOSED
+            iconlink-bug-CLOSED-RAWHIDE
+        
+    ">
+        <span class="type-alt">bug (CLOSED RAWHIDE)</span>
+    </a>
+        
+    </td>
+            </tr>
+        
+    </tbody>
+                </table>
+            
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <h2>Dependency Tree</h2>
+            <ul class="simple-pkg-list">
+        
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic/">python-XStatic
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular/">python-XStatic-Angular
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Bootstrap/">python-XStatic-Angular-Bootstrap
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-FileUpload/">python-XStatic-Angular-FileUpload
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Gettext/">python-XStatic-Angular-Gettext
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-Mock/">python-XStatic-Angular-Mock
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Angular-lrdragndrop/">python-XStatic-Angular-lrdragndrop
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Bootstrap-Datepicker/">python-XStatic-Bootstrap-Datepicker
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Bootstrap-SCSS/">python-XStatic-Bootstrap-SCSS
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-D3/">python-XStatic-D3
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-DataTables/">python-XStatic-DataTables
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Font-Awesome/">python-XStatic-Font-Awesome
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Hogan/">python-XStatic-Hogan
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-Migrate/">python-XStatic-JQuery-Migrate
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-TableSorter/">python-XStatic-JQuery-TableSorter
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JQuery-quicksearch/">python-XStatic-JQuery-quicksearch
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-JSEncrypt/">python-XStatic-JSEncrypt
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Jasmine/">python-XStatic-Jasmine
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Magic-Search/">python-XStatic-Magic-Search
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Patternfly/">python-XStatic-Patternfly
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Patternfly-Bootstrap-Treeview/">python-XStatic-Patternfly-Bootstrap-Treeview
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-QUnit/">python-XStatic-QUnit
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Rickshaw/">python-XStatic-Rickshaw
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-Spin/">python-XStatic-Spin
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-bootswatch/">python-XStatic-bootswatch
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-jQuery/">python-XStatic-jQuery
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-jquery-ui/">python-XStatic-jquery-ui
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-mdi/">python-XStatic-mdi
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-roboto-fontface/">python-XStatic-roboto-fontface
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-smart-table/">python-XStatic-smart-table
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+        <li>
+            <span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-XStatic-termjs/">python-XStatic-termjs
+    </a>
+            
+            
+            
+            <ul class="simple-pkg-list" style="border-left: 1px solid #EEE">
+                
+            </ul>
+        </li>
+    
+    </ul>
+        </div>
+    </div>
+
+        
+    </body>
+</html>

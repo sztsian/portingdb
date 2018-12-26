@@ -1,0 +1,1496 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>Naming Policy – Python 2 Dropping Database</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/svg+xml" href="/namingpolicy/piechart.svg?e5362586-d944-4939-b0dc-d90e5be1133a">
+        
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
+        <style>
+            
+            .badge {
+                min-width: 2em;
+                color: black;
+                margin-left: 0.5ex;
+            }
+            .ftbfs-badge {
+                display: inline-block;
+                background-color: #E88726;
+                color: black;
+                padding: 0.25em 0.5em 0 0.5em;
+                font-size: 60%;
+                margin-top: 0.25em;
+                vertical-align: top;
+            }
+            .simple-pkg-list {
+                list-style-type: none;
+                padding-left: 1em;
+            }
+            .simple-pkg-list>li {
+                padding-left: 0.5em;
+                text-indent: -0.5em;
+            }
+            .simple-pkg-list>li * {
+                text-indent: 0;
+            }
+            .dependents .badge {
+                min-width: 1ex;
+                min-height: 1ex;
+                font-size: 0;
+                padding: 0.75rem;
+                margin-left: 0 !important;
+            }
+            .dependents th {
+                font-weight: normal;
+            }
+            .dependents .th-collection {
+                font-size: 70%;
+            }
+            .pkgstatus-icon {
+                padding: 0;
+                min-width: 3px;
+            }
+            .note {
+                font-style: italic;
+            }
+            .iconlink span.type-alt {
+                font-size: 0;
+            }
+            nav, nav ol {
+                margin-bottom: 0 !important;
+                background-color: #F5F5F5;
+            }
+            .progress-with-legend {
+                margin-bottom: 1em;
+            }
+            .naming-badge {
+                display: inline-block;
+                position: relative;
+                top: 2px;
+                min-height: 1em;
+                min-width: 1em;
+                border-radius: 3px;
+                padding: 2px;
+            }
+            .list-group .naming-badge {
+                float: right;
+            }
+            .rpm-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-left: 1em;
+            }
+            .rpm-list li .rpm-name {
+                font-weight: bold;
+            }
+            .iconlink-bug-NEW,
+            .iconlink-bug-CLOSED-DEFERRED
+                { color: #AAAAAA !important; } /* ~idle */
+            .iconlink-bug-ASSIGNED,
+            .iconlink-bug-POST,
+            .iconlink-bug-MODIFIED,
+            .iconlink-bug-ON_QA,
+            .iconlink-bug-VERIFIED,
+            .iconlink-bug-RELEASE_PENDING,
+            .iconlink-bug-CLOSED
+                { color: #F0AD4E !important; } /* ~in-progress */
+            .iconlink-bug-CLOSED-NOTABUG,
+            .iconlink-bug-CLOSED-WONTFIX,
+            .iconlink-bug-CLOSED-WORKSFORME,
+            .iconlink-bug-CLOSED-DUPLICATE,
+            .iconlink-bug-CLOSED-UPSTREAM
+            .iconlink-bug-CLOSED-CANTFIX,
+            .iconlink-bug-CLOSED-INSUFFICIENT_DATA,
+            .iconlink-bug-CLOSED-EOL
+                 { color: #D9534F !important; } /* ~blocked */
+            .iconlink-bug-CLOSED-CURRENTRELEASE,
+            .iconlink-bug-CLOSED-RAWHIDE,
+            .iconlink-bug-CLOSED-ERRATA,
+            .iconlink-bug-CLOSED-NEXTRELEASE
+                { color: #5CB85C !important; } /* ~released */
+
+            .global-message {
+                padding: 0.1ex;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #888;
+                color: #000;
+            }
+            .related-packages .progress-legend-item {
+                display: block;
+                padding-left: 2em;
+            }
+            body {
+                margin-bottom: 4em;
+            }
+            
+
+            
+        </style>
+    </head>
+    <body>
+        
+            <nav>
+                <div class="container">
+                    <ol class="breadcrumb">
+                        
+                            
+                                <li>
+                                    <a href="/">Python 3 Porting Database</a>
+                                </li>
+                            
+                        
+                            
+                                <li class="active">Naming Policy</li>
+                            
+                        
+                    </ol>
+                </div>
+            </nav>
+        
+        
+
+<div class="container">
+    <div class="col-md-12">
+        <h1>Naming Policy Violations</h1>
+    </div>
+    <div class="col-md-12">
+        <p>
+            This is a dashboard to track various naming scheme violations in Python packages.
+        </p>
+        <p>
+            Specifically, this tracks the use of “unversioned” <code>python</code>
+            in all package names, Provides, Requires, etc.
+            It should be replaced by "versioned” variants <code>python2</code>
+            or <code>python3</code>.
+        </p>
+        <p>
+            We encourage to follow the new guidelines to avoid a range of issues
+            when upstream support for Python 2 ends and <code>python</code>
+            means Python 3 in Fedora.
+        </p>
+    </div>
+    <div class="col-md-9">
+        <h3 id="name-misnamed">
+            Misnamed subpackage (16)
+        </h3>
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+        The naming scheme of (at least) one of the binary RPMs
+        does not comply with the naming policy. Please refer to the
+        <a href="https://python-rpm-porting.readthedocs.io/en/latest/naming-scheme.html">
+        Python RPM Porting Guide</a> for more information and instructions on
+        the changes needed.
+        <ul class="simple-pkg-list">
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/PyQt4/">PyQt4
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/claws-mail/">claws-mail
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/edk2/">edk2
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/gpaw/">gpaw
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/kross-interpreters/">kross-interpreters
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/lcgdm/">lcgdm
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/libkdtree++/">libkdtree++
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 22."
+        >
+            !!!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/m2crypto/">m2crypto
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/mesos/">mesos
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/pykde4/">pykde4
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/python-jabberbot/">python-jabberbot
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 23."
+        >
+            !!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-ldaptor/">python-ldaptor
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-context/">python-oslo-context
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python-pylons/">python-pylons
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 21."
+        >
+            !!!!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/vim-syntastic/">vim-syntastic
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/waf/">waf
+    
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+    </a></li>
+            
+        </ul>
+
+        <h3>
+            Ambiguous Requires
+            (152)
+        </h3>
+        Some (Build)Requires use “unversioned” <code>python</code>.
+
+        <h4 id="require-misnamed">Unblocked</h4>
+        <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+        For 99 Python packages, explicitly versioned
+        names (e.g. <code>python2-foo</code>) are available and should be used.
+        <ul class="simple-pkg-list" style="column-width: 10em;">
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/PyMca/">PyMca
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 26."
+        >
+            !!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/Ray/">Ray
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 24."
+        >
+            !!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/airinv/">airinv
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/airrac/">airrac
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/airtsp/">airtsp
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/anki/">anki
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/calibre/">calibre
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/catfish/">catfish
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/centerim/">centerim
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 23."
+        >
+            !!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/cherrytree/">cherrytree
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/claws-mail/">claws-mail
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/crudini/">crudini
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/cwiid/">cwiid
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 26."
+        >
+            !!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/dmlite/">dmlite
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/dpm-contrib-admintools/">dpm-contrib-admintools
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/edk2/">edk2
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/emacs-pymacs/">emacs-pymacs
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 25."
+        >
+            !!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/freecad/">freecad
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/gcc-python-plugin/">gcc-python-plugin
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gnue-common/">gnue-common
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 23."
+        >
+            !!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/gpaw/">gpaw
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/gr-air-modes/">gr-air-modes
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/grass/">grass
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/gstreamer-rtsp/">gstreamer-rtsp
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/ibus/">ibus
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/ioprocess/">ioprocess
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/koji/">koji
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/lcgdm/">lcgdm
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/libiptcdata/">libiptcdata
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/libldb/">libldb
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/livecd-tools/">livecd-tools
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/loopabull/">loopabull
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/lrbd/">lrbd
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/mesos/">mesos
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/nbdkit/">nbdkit
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/nfs-ganesha/">nfs-ganesha
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/ninja-ide/">ninja-ide
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 27."
+        >
+            !!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/odcs/">odcs
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pilas/">pilas
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pmpu/">pmpu
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/prepaid-manager-applet/">prepaid-manager-applet
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/puddletag/">puddletag
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pyqt-mail-checker/">pyqt-mail-checker
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 27."
+        >
+            !!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/pyside-tools/">pyside-tools
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-ansible-runner/">python-ansible-runner
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-basemap/">python-basemap
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-catkin_tools/">python-catkin_tools
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-fedora/">python-fedora
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/python-gencpp/">python-gencpp
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5bc0de">&nbsp;</span>&nbsp;<a href="/pkg/python-genlisp/">python-genlisp
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/python-genpy/">python-genpy
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/python-jabberbot/">python-jabberbot
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 23."
+        >
+            !!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-ldaptor/">python-ldaptor
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/python-mdp/">python-mdp
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-networking-bigswitch/">python-networking-bigswitch
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-novaclient/">python-novaclient
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-ntlm-auth/">python-ntlm-auth
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oauth2client/">python-oauth2client
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-concurrency/">python-oslo-concurrency
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-context/">python-oslo-context
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-i18n/">python-oslo-i18n
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-log/">python-oslo-log
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-messaging/">python-oslo-messaging
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-middleware/">python-oslo-middleware
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-service/">python-oslo-service
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-oslo-utils/">python-oslo-utils
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-pecan-notario/">python-pecan-notario
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-pycadf/">python-pycadf
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 888888">&nbsp;</span>&nbsp;<a href="/pkg/python-pylons/">python-pylons
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 21."
+        >
+            !!!!!!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-pymilter/">python-pymilter
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-rospkg/">python-rospkg
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-semantic_version/">python-semantic_version
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/python-tooz/">python-tooz
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/python-websocket-client/">python-websocket-client
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/qct/">qct
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/rdopkg/">rdopkg
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/resiprocate/">resiprocate
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 25."
+        >
+            !!!!
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/rhn-client-tools/">rhn-client-tools
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/rmol/">rmol
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/salt/">salt
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/sevmgr/">sevmgr
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/simcrs/">simcrs
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/simfqt/">simfqt
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/spacecmd/">spacecmd
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/subscription-manager/">subscription-manager
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/swatchbooker/">swatchbooker
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/synce-kpm/">synce-kpm
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/tito/">tito
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/trademgen/">trademgen
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/translation-filter/">translation-filter
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/travelccm/">travelccm
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/turpial/">turpial
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: EAE44E">&nbsp;</span>&nbsp;<a href="/pkg/uwsgi/">uwsgi
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 2D9510">&nbsp;</span>&nbsp;<a href="/pkg/variety/">variety
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/vdsm/">vdsm
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/vegastrike/">vegastrike
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/virtio-forwarder/">virtio-forwarder
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: 5EBA84">&nbsp;</span>&nbsp;<a href="/pkg/waf/">waf
+        <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+    
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/writetype/">writetype
+    
+        <span
+            class="ftbfs-badge"
+            title="FTBFS alert! Built package appears to be from Fedora 28."
+        >
+            !
+        </span></a></li>
+            
+        </ul>
+
+        <h4 id="require-blocked">Blocked</h4>
+        <span
+        class="naming-badge"
+        style="background-color: #a65959 !important;"
+        title="Ambiguous Requires (blocked)"
+    ></span>
+        For 4 Python packages, explicitly versioned
+        names (e.g. <code>python2-foo</code>) may not be available.
+        These packages are waiting for some misnamed packages to be renamed.
+        <ul class="simple-pkg-list">
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/fts-rest/">fts-rest
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/nagios-plugins-lcgdm/">nagios-plugins-lcgdm
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: D9534F">&nbsp;</span>&nbsp;<a href="/pkg/pysysbot/">pysysbot
+    </a></li>
+            
+                <li><span class="pkgstatus-icon" style="background-color: DDDDDD">&nbsp;</span>&nbsp;<a href="/pkg/python-matrix-synapse-ldap3/">python-matrix-synapse-ldap3
+    </a></li>
+            
+        </ul>
+
+        <h4 id="require-misnamed-non-python">
+            Non-Python Packages
+        </h4>
+        <div>
+            There are also 49 non-Python packages which
+            are not tracked in Python Porting Database, but depend on Python
+            packages and use the unversioned naming scheme in run-time or
+            build-time requirements.
+        </div>
+
+        <table class="table table-striped table-condensed table-hovered">
+            <tr>
+                <th>Package</th>
+                <th>Links</th>
+            </tr>
+            
+            <tr>
+                <td>
+                    tarantool
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/tarantool/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/tarantool/blob/master/f/tarantool.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    gedit-plugins
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/gedit-plugins/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/gedit-plugins/blob/master/f/gedit-plugins.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    telepathy-haze
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/telepathy-haze/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/telepathy-haze/blob/master/f/telepathy-haze.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    font-manager
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/font-manager/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/font-manager/blob/master/f/font-manager.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    workrave
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/workrave/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/workrave/blob/master/f/workrave.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    LogService
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/LogService/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/LogService/blob/master/f/LogService.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    geany-plugins
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/geany-plugins/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/geany-plugins/blob/master/f/geany-plugins.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    varnish-modules
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/varnish-modules/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/varnish-modules/blob/master/f/varnish-modules.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    xss-lock
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/xss-lock/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/xss-lock/blob/master/f/xss-lock.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mod_nss
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mod_nss/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mod_nss/blob/master/f/mod_nss.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    fawkes
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/fawkes/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/fawkes/blob/master/f/fawkes.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    apiextractor
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/apiextractor/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/apiextractor/blob/master/f/apiextractor.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    aqsis
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/aqsis/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/aqsis/blob/master/f/aqsis.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    castxml
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/castxml/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/castxml/blob/master/f/castxml.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    davix
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/davix/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/davix/blob/master/f/davix.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    fastd
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/fastd/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/fastd/blob/master/f/fastd.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    flexiport
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/flexiport/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/flexiport/blob/master/f/flexiport.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    generatorrunner
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/generatorrunner/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/generatorrunner/blob/master/f/generatorrunner.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    jansson
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/jansson/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/jansson/blob/master/f/jansson.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    liblognorm
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/liblognorm/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/liblognorm/blob/master/f/liblognorm.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    libmemcached
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/libmemcached/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/libmemcached/blob/master/f/libmemcached.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    llvm3.9
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/llvm3.9/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/llvm3.9/blob/master/f/llvm3.9.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mellowplayer
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mellowplayer/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mellowplayer/blob/master/f/mellowplayer.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    metrics
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/metrics/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/metrics/blob/master/f/metrics.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    osgearth
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/osgearth/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/osgearth/blob/master/f/osgearth.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    pcl
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/pcl/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/pcl/blob/master/f/pcl.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    udis86
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/udis86/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/udis86/blob/master/f/udis86.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    yara
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/yara/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/yara/blob/master/f/yara.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    blitz
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/blitz/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/blitz/blob/master/f/blitz.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    colobot
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/colobot/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/colobot/blob/master/f/colobot.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    farstream02
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/farstream02/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/farstream02/blob/master/f/farstream02.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    gstreamer-plugins-good
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/gstreamer-plugins-good/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/gstreamer-plugins-good/blob/master/f/gstreamer-plugins-good.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    heimdal
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/heimdal/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/heimdal/blob/master/f/heimdal.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    htop
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/htop/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/htop/blob/master/f/htop.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    hyperscan
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/hyperscan/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/hyperscan/blob/master/f/hyperscan.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    json4s
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/json4s/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/json4s/blob/master/f/json4s.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    kdepim3
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/kdepim3/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/kdepim3/blob/master/f/kdepim3.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    libclc
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/libclc/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/libclc/blob/master/f/libclc.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    liquidwar
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/liquidwar/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/liquidwar/blob/master/f/liquidwar.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    maxima
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/maxima/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/maxima/blob/master/f/maxima.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mingw-qpid-cpp
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mingw-qpid-cpp/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mingw-qpid-cpp/blob/master/f/mingw-qpid-cpp.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mingw-wine-gecko
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mingw-wine-gecko/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mingw-wine-gecko/blob/master/f/mingw-wine-gecko.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mongo-c-driver
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mongo-c-driver/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mongo-c-driver/blob/master/f/mongo-c-driver.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    mozc
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mozc/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/mozc/blob/master/f/mozc.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    ompl
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/ompl/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/ompl/blob/master/f/ompl.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    sbt
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/sbt/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/sbt/blob/master/f/sbt.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    seamonkey
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/seamonkey/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/seamonkey/blob/master/f/seamonkey.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    spring
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/spring/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/spring/blob/master/f/spring.spec">spec</a>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    sugar-yupana
+                    
+                </td>
+                <td>
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/sugar-yupana/">Pagure</a>,
+                    <a target="_blank" href="https://src.fedoraproject.org/rpms/sugar-yupana/blob/master/f/sugar-yupana.spec">spec</a>
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span
+        class="naming-badge"
+        style="background-color: #F0AD4E !important;"
+        title="Misnamed package"
+    ></span>
+                <a href="#name-misnamed">
+                    16
+                    <strong>Misnamed subpackage</strong>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <span
+        class="naming-badge"
+        style="background-color: #8c6699 !important;"
+        title="Ambiguous Requires"
+    ></span>
+                <a href="#require-misnamed">
+                    99
+                    <strong>Unblocked</strong>
+                    Ambiguous Requires
+                </a>
+            </li>
+            <li class="list-group-item">
+                <span
+        class="naming-badge"
+        style="background-color: #a65959 !important;"
+        title="Ambiguous Requires (blocked)"
+    ></span>
+                <a href="#require-blocked">
+                    4
+                    <strong>Blocked</strong>
+                    Ambiguous Requires
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#require-misnamed-non-python">
+                    49
+                    <strong>Non-Python</strong>
+                    Ambiguous Requires
+                </a>
+            </li>
+        </ul>
+        <h3>Visualizations</h3>
+        <div>
+            You may also see a
+            <a href="/namingpolicy/history/">graph of the progress history</a>
+            for the naming policy violations.
+        </div>
+    </div>
+</div>
+
+
+        
+    </body>
+</html>

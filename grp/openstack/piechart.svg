@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 16 16"
+    >
+  <defs id="defs4" />
+  <metadata id="metadata7">
+  </metadata>
+  <title>Python 3 porting status pie chart</title>
+  <!-- [({'ident': 'py3-only', 'name': 'Python 3 only', 'abbrev': '🗹', 'color': '2D9510', 'term': '\\e[32;7m\\U0001F5F9\\e[0m', 'weight': 2, 'description': 'Package only supports Python 3', 'rank': 4, 'instructions': 'Welcome to the future! This package does not support Python 2 at all. All is good in the world.'}, 26), ({'ident': 'legacy-leaf', 'name': 'Py2 leaf', 'abbrev': 'L', 'color': 'EAE44E', 'term': 'L', 'weight': 3, 'description': "Package with dual support whose Python 2 subpackage(s) aren't needed elsewhere in Fedora", 'rank': 3, 'instructions': 'The Python 2 subpackage(s) are not required by anything in Fedora. They can be dropped if the maintainer wishes.'}, 2), ({'ident': 'released', 'name': 'Dual support', 'abbrev': '✔', 'color': '5EBA84', 'term': '\\e[32;7m\\u2714\\e[0m', 'weight': 4, 'description': 'Supports both Python 3 and Python 2', 'rank': 2, 'instructions': 'This package is released with dual support for Python 2 and Python 3. To move things forward, you can start making dependent packages use the Python 3 version.'}, 225), ({'ident': 'mispackaged', 'name': 'Mispackaged', 'abbrev': 'M', 'color': '5bc0de', 'term': 'M', 'weight': 7, 'description': 'Packaging, rather than code, seems incorrect', 'rank': 8, 'instructions': 'This package has a packaging problem, which should be described in the\nnotes.\nCheck where the problem is coming from, and work with the maintainer\nto correct it.\n\nIf this is a false positive, file a portingdb bug.\n'}, 1), ({'ident': 'idle', 'name': 'Idle', 'abbrev': 'I', 'color': 'DDDDDD', 'term': ' ', 'weight': 6, 'description': 'No current activity is recorded', 'rank': 6, 'instructions': 'No one is working on this package now. You can visit pkgdb for links to the\nupstream project.\nAsk for Python 3 status, and coordinate work with the upstream to port.\n\nIf upstream has Python 3 support but it is not yet in Fedora,\nget in touch with the Fedora maintainer (also visible in pkgdb).\n'}, 8), ({'ident': 'dropped', 'name': 'Dropped', 'abbrev': 'X', 'color': '888888', 'term': 'X', 'weight': 1, 'description': 'Package will not be ported; dependents must use an alternative', 'rank': 1, 'instructions': 'This package will not be ported to Python 3. We can do without it – see\nif there is an alternative listed in the notes.\n\nIf you think it would be good to port it anyway, get in touch with the upstream!\n'}, 9)] / 271 -->
+  <g
+     id="layer1">
+    
+    <circle cx="8" cy="8" r="7"
+       style="
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+        fill-opacity:0;
+       "
+       id="circle-fg" />
+    
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 8.0,1.0
+        A
+            7,7
+            0 0 1
+            11.968743870023657,2.2337991628673173
+        L 8,8
+        Z"
+       style="
+        fill:#2D9510;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-py3-only">
+        <title>Python 3 only: 26 packages (9.6%)</title>
+      </path>
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 11.968743870023657,2.2337991628673173
+        A
+            7,7
+            0 0 1
+            12.231762878537696,2.4239635098189716
+        L 8,8
+        Z"
+       style="
+        fill:#EAE44E;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-legacy-leaf">
+        <title>Py2 leaf: 2 packages (0.7%)</title>
+      </path>
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 12.231762878537696,2.4239635098189716
+        A
+            7,7
+            0 1 1
+            5.162731232114274,1.600788647123756
+        L 8,8
+        Z"
+       style="
+        fill:#5EBA84;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-released">
+        <title>Dual support: 225 packages (83.0%)</title>
+      </path>
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 5.162731232114274,1.600788647123756
+        A
+            7,7
+            0 0 1
+            5.311847399871163,1.5367318175383922
+        L 8,8
+        Z"
+       style="
+        fill:#5bc0de;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-mispackaged">
+        <title>Mispackaged: 1 packages (0.4%)</title>
+      </path>
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 5.311847399871163,1.5367318175383922
+        A
+            7,7
+            0 0 1
+            6.549910256248547,1.1518440631753393
+        L 8,8
+        Z"
+       style="
+        fill:#DDDDDD;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-idle">
+        <title>Idle: 8 packages (3.0%)</title>
+      </path>
+    
+    
+
+    
+    
+
+    
+      <path
+       d="
+        M 8,8
+        M 6.549910256248547,1.1518440631753393
+        A
+            7,7
+            0 0 1
+            7.999999999999999,1.0
+        L 8,8
+        Z"
+       style="
+        fill:#888888;
+        stroke:#000000;stroke-opacity:1;
+        stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:round;
+        stroke-miterlimit:4;
+       "
+       id="wedge-dropped">
+        <title>Dropped: 9 packages (3.3%)</title>
+      </path>
+    
+    
+  </g>
+</svg>
